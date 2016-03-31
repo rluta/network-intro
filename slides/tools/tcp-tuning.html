@@ -1,0 +1,55 @@
+<h2>Linux tuning</h2>
+<div class="ac-container">
+    <div>
+        <input id="ac-1" name="accordion-1" type="radio">
+        <label for="ac-1">Adjust initial congestion window</label>
+        <article class="ac-medium">
+            <code>
+                $ <b>sudo ip route change default via 192.168.1.1 dev eth0 metric 100 initcwnd 10</b><br>
+                $ <b>ip route | grep default </b><br>
+                default via 192.168.1.1 dev eth0  metric 100  mtu 1500 initcwnd 10<br>
+            </code>
+        </article>
+    </div>
+    <div>
+        <input id="ac-2" name="accordion-1" type="radio">
+        <label for="ac-2">Avoid slow-start after idle connections</label>
+        <article class="ac-medium">
+            <code>
+                $ <b>sudo sysctl -w net.ipv4.tcp_slow_start_after_idle = 0</b>
+            </code>
+        </article>
+    </div>
+    <div>
+        <input id="ac-3" name="accordion-1" type="radio">
+        <label for="ac-3">Ajust windows</label>
+        <article class="ac-medium">
+            <code>
+                $ <b>cat /proc/sys/net/ipv4/tcp_rmem</b><br>
+                4096	87380	6291456<br>
+                <br>
+                # <b>echo 4096 87380 16777216 > /proc/sys/net/ipv4/tcp_rmem</b><br>
+                <br>
+                $ <b>cat /proc/sys/net/ipv4/tcp_wmem</b><br>
+                4096	16384	4194304<br>
+                <br>
+                # <b>echo 4096 65536 16777216 > /proc/sys/net/ipv4/tcp_wmem</b><br>
+            </code>
+        </article>
+    </div>
+    <div>
+        <input id="ac-4" name="accordion-1" type="radio">
+        <label for="ac-4">Increase MTU</label>
+        <article class="ac-medium">
+            <code class=""cli">
+                $ <b>sudo ifconfig eth0 mtu 9000 up</b><br>
+                $ <b>sudo ip route change default via 192.168.1.1 dev eth0 metric 100 mtu 9000</b>
+            </code>
+        </article>
+    </div>
+</div>
+
+<div>
+    For HTTP servers: <a href="https://tools.ietf.org/html/draft-stenberg-httpbis-tcp-01">https://tools.ietf.org/html/draft-stenberg-httpbis-tcp-01</a>
+</div>
+

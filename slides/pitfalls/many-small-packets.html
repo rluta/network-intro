@@ -1,0 +1,67 @@
+<section>
+    <h2>Database join query</h2>
+    <div style="text-align: left;">
+        <h3>Objective</h3>
+        <p>Retrieve a list of orders for 100 customers</p>
+        <h3>Assumptions</h3>
+        <ul>
+            <li>Average 4 orders per customer</li>
+            <li>Average 50 bytes of info per order</li>
+            <li>Average 20 bytes of info per customer</li>
+            <li>Network RTT is 1 ms, bandwidth 1 Gbps</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>Query styles</h2>
+    <div style="text-align: left">
+        <p><b>Big join</b></p>
+        <code class="small cli">
+            $orders = query(<strong>select c.name, o.* <br />&nbsp;&nbsp;from customers c join orders o on c.id = o.custId</strong>)
+        </code>
+    </div>
+    <br />
+    <div class="fragment roll-in" style="text-align: left">
+        <p><b>Lazy join</b></p>
+        <code class="small cli">
+            $custs = query(<strong>"select id,name from customers"</strong>)<br />
+            <br />
+            for ($custs as $c) <br />
+            &nbsp;&nbsp;$orders = query(<strong>"select * from orders where custId=${c->id}"</strong>)<br />
+        </code>
+    </div>
+</section>
+
+<section>
+    <h2>Query analysis</h2>
+    <div style="text-align: left">
+        <p><b>Big join</b></p>
+        <code class="small cli">
+            70 bytes * (100 * 4) = 28000 bytes payload<br />
+            1 RTT connect + 3 RTT payload + query time
+        </code>
+        <br />
+        <code class="fragment roll-in small cli">
+            <strong>Total: 4 ms + query</strong> (20 packets, 28.4 kB transfer)
+        </code>
+    </div>
+    <br />
+    <div class="fragment roll-in" style="text-align: left">
+        <p><b>Lazy join</b></p>
+        <code class="small cli">
+            First query:<br />
+            &nbsp;&nbsp;20 bytes * 100 = 2000 bytes payload<br />
+            &nbsp;&nbsp;1 RTT connect + 1 RTT payload + query time<br />
+        </code>
+        <code class="fragment roll-in small cli">
+            Per customer id (x100):<br />
+            &nbsp;&nbsp;50 bytes * 4 = 200 bytes<br />
+            &nbsp;&nbsp;1 RTT payload + query time
+        </code>
+        <br />
+        <code class="fragment roll-in small cli">
+            <strong>Total: 102 ms + query</strong> (102 packets, 22 kB transfer)
+        </code>
+    </div>
+</section>

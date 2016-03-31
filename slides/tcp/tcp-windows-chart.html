@@ -1,0 +1,109 @@
+<style>
+    .sender {
+        background-color: cyan;
+        border: 1px solid black;
+    }
+
+    .app {
+        opacity: 0.5;
+    }
+
+    .recipient {
+        background-color: darkorange;
+        border: 1px solid black;
+    }
+
+    .reveal .network {
+        width: 10em;
+        min-height: 2zm;
+        background-color: white;
+        border: 1px solid black;
+    }
+
+    .app.buffer {
+        width: 200px;
+        height: 300px;
+    }
+
+    .tcp {
+        width: 50px;
+        min-height: 50px;
+        border: 1px solid black;
+    }
+</style>
+
+<h2>TCP Windows</h2>
+
+<div class="row">
+    <div class="fill">
+        <table>
+            <thead>
+            <th colspan="2">Sender</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Congestion window (pkts)</td>
+                <td>10</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="fill">
+        <table>
+            <thead>
+            <th colspan="2">Network</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Bandwidth (Mbps)</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Latency (ms)</td>
+                <td>10</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="fill">
+        <table class="fit">
+            <thead>
+            <th colspan="2">Recipient</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Recipient window (kbytes)</td>
+                <td>10</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row" style="margin-top: 3em;">
+    <div class="fit" style="display: flex; margin: auto; align-items: center" >
+        <div class="app sender buffer">
+
+        </div>
+        <div class="tcp sender cwnd" data-default="10" data-min="1" data-max="100" data-pixratio="5">
+
+        </div>
+        <div class="tcp sender rwnd" data-default="64"">
+
+        </div>
+        <div class="network" data-bw="10" data-rtt="30">
+
+        </div>
+
+        <div class="tcp recipient rwnd" data-default="64" data-min="16" data-max="512" data-pixratio="2">
+
+        </div>
+        <div class="app recipient buffer">
+
+        </div>
+    </div>
+</div>
+<div style="flex: 0 0 100%; flex-wrap: 1">
+    <button name="start">Start</button>
+</div>
+
+

@@ -1,0 +1,61 @@
+<section id="clitools2" data-tabular>
+    <h2>Command Line Tools</h2>
+    <div class="ui tabular fluid large menu">
+        <div class="item active" data-tab="iperf">iperf</div>
+        <div class="item" data-tab="ss">ss</div>
+        <div class="item" data-tab="tcpdump">tcpdump</div>
+    </div>
+    <div id="tcpdump" class="ui tab fluid" style="text-align: left">
+        <div class="content">
+            <code>
+                <b>$ sudo tcpdump -i eth0 -s 1500 -w /tmp/trace.pcap "tcp and port 80"</b><br />
+                ^C1847 packets captured<br>
+                1849 packets received by filter<br>
+                0 packets dropped by kernel<br>
+            </code>
+        </div>
+    </div>
+    <div id="ss" class="ui tab fluid" style="text-align: left;">
+        <div class="content">
+            <code>
+                <b>$ ss -ti</b><br />
+<pre>
+State  Recv-Q Send-Q     Local Address:Port         Peer Address:Port
+ESTAB  0      208        176.31.125.78:ssh          86.70.100.151:50669
+	 cubic wscale:4,7 rto:244 rtt:35/4 ato:40
+	 cwnd:10 ssthresh:7 send 3.3Mbps rcv_rtt:44 rcv_space:14480
+</pre>
+            </code>
+        </div>
+    </div>
+    <div id="iperf" class="ui tab fluid" style="text-align: left">
+        <div class="content">
+            <code>
+                ns397279:~$ <b>iperf -s</b><br>
+<pre>
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+</pre>
+                <br>
+                $ <b>iperf -c ns397279.ovh.net -m -w 85kB</b><br>
+<pre>
+------------------------------------------------------------
+Client connecting to ns397279.ovh.net, TCP port 5001
+TCP window size:  166 KByte (WARNING: requested 83.0 KByte)
+------------------------------------------------------------
+[  3] local 10.0.2.15 port 39293 connected with 176.31.125.78 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-12.3 sec  1.75 MBytes  1.20 Mbits/sec
+[  3] MSS size 1460 bytes (MTU 1500 bytes, ethernet)
+</pre>
+
+            </code>
+        </div>
+    </div>
+</section>
+<section>
+    <h2>GUI Tools: Wireshark</h2>
+    <img src="images/wireshark.png" />
+</section>

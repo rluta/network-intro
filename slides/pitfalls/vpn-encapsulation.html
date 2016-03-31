@@ -1,0 +1,72 @@
+<style>
+    .packet {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(80px 10px)[10];
+        grid-auto-flow: columns;
+    }
+
+    .packet > .data, .packet > .header {
+        width: 80px;
+    }
+
+    .packet > .pos1 { grid-column: 1 }
+    .packet > .pos2 { grid-column: 2 }
+    .packet > .pos3 { grid-column: 3 }
+    .packet > .pos4 { grid-column: 4 }
+    .packet > .pos5 { grid-column: 5 }
+    .packet > .pos6 { grid-column: 6 }
+    .packet > .pos7 { grid-column: 7 }
+    .packet > .pos8 { grid-column: 8 }
+    .packet > .pos9 { grid-column: 9 }
+    .packet > .pos10 { grid-column: 10 }
+</style>
+<h2>Using an IPSEC VPN</h2>
+<br />
+<div class="ui fluid middle left aligned grid">
+    <div class="row">
+        <div class="four wide column label">Payload data</div>
+        <div class="twelve wide column">
+            <div class="packet ui large center aligned celled fluid grid">
+                <div class="payload sixteen column wide">Data</div>
+            </div>
+        </div>
+    </div>
+    <div class="row fragment roll-in">
+        <div class="four wide column label">TCP Packet</div>
+        <div class="twelve wide column">
+            <div class="packet ui large center aligned celled grid">
+                <div class="header one column wide">IP</div>
+                <div class="header one column wide">TCP</div>
+                <div class="payload fourteen column wide">Data</div>
+            </div>
+        </div>
+    </div>
+    <div class="row fragment roll-in">
+        <div class="four wide column label">VPN/L2TP<br />w/ NAT traversal</div>
+        <div class="twelve wide column">
+            <div class="packet ui large center aligned celled grid">
+                <div class="header one column wide">IP</div>
+                <div class="header one column wide">UDP</div>
+                <div class="header one column wide">ESP</div>
+                <div class="header one column wide">UDP</div>
+                <div class="header one column wide">L2TP</div>
+                <div class="header one column wide">PPP</div>
+                <div class="header one column wide">IP</div>
+                <div class="header one column wide">TCP</div>
+                <div class="payload six column wide">Data</div>
+                <div class="header two column wide">ESP</div>
+            </div>
+        </div>
+    </div>
+    <div class="row fragment roll-in">
+        <div class="sixteen wide column label">
+            <ul>
+                <br />
+                <li>Total header and trailer size at least 140 bytes</li>
+                <br />
+                <li>Bandwidth loss is at least 10%, typically closer to 25-30 % for most applications</li>
+            </ul>
+        </div>
+    </div>
+</div>

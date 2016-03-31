@@ -1,0 +1,22 @@
+<h2>Windows Everywhere</h2>
+<div style="text-align: left">
+    <br />
+    <ul>
+        <li>Windows regulate flow between sender and recipient
+            <ul>
+                <li>Receiver window (<strong>rwnd</strong>) avoids recipient overload</li>
+                <li>Congestion window (<strong>cwnd</strong>) prevents network saturation</li>
+            </ul>
+        </li>
+        <br/>
+        <li><i>Max # of inflight bytes = min(rwnd, cwnd)</i></li>
+        <br />
+        <li>Window changes determined by :
+            <ul>
+                <li>Recipient available buffer (rwnd)</li>
+                <li>Slow start (cwnd)</li>
+                <li>Congestion avoidance (cwnd)</li>
+            </ul>
+        </li>
+    </ul>
+</div>

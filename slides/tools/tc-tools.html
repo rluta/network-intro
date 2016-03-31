@@ -1,0 +1,67 @@
+<section id="clitools"  data-tabular>
+    <h2>Shaping Tools: command line</h2>
+    <div class="ac-container">
+        <div>
+            <input id="tc-1" name="accordion-1" type="radio">
+            <label for="tc-1">Add constant latency</label>
+            <article class="ac-medium">
+                <code>
+                    $ <b>sudo tc qdisc add dev eth0 root netem delay 20ms</b><br />
+                    $ <b>sudo tc qdisc show dev eth0</b><br />
+                    qdisc netem 8004: root refcnt 2 limit 1000 delay 20.0ms<br />
+                </code>
+            </article>
+        </div>
+        <div>
+            <input id="tc-2" name="accordion-1" type="radio">
+            <label for="tc-2">Add latency + jitter</label>
+            <article class="ac-medium">
+                <code>
+                    $ <b>sudo tc qdisc change dev eth0 root netem delay 20ms 2ms 15%</b><br />
+                    <br />
+                    $ <b>sudo tc qdisc show dev eth0</b><br />
+                    qdisc netem 8005: root refcnt 2 limit 1000 delay 20.0ms  2.0ms 15%<br />
+                    <br/>
+                </code>
+            </article>
+        </div>
+        <div>
+            <input id="tc-3" name="accordion-1" type="radio">
+            <label for="tc-3">Lossy connection</label>
+            <article class="ac-medium">
+                <code>
+                    $ <b>sudo tc qdisc change dev eth0 root netem loss 1</b><br />
+                    <br />
+                    $ <b>sudo tc qdisc show dev eth0</b><br />
+                    qdisc netem 8005: root refcnt 2 limit 1000 loss 1%<br />
+                    <br/>
+                </code>
+            </article>
+        </div>
+        <div>
+            <input id="tc-4" name="accordion-1" type="radio">
+            <label for="tc-4">Remove shaping</label>
+            <article class="ac-medium">
+                <code>
+                    $ <b>sudo tc qdisc del dev eth0 root</b><br />
+                    <br />
+                    $ <b>sudo tc qdisc show dev eth0</b><br />
+                    qdisc pfifo_fast 0: root refcnt 2 bands 3 priomap  1 2 2 2 1 2 0 0 1 1 1 1 1 1 1 1<br />
+                    <br/>
+                </code>
+            </article>
+        </div>
+        <div>
+            <input id="tc-5" name="accordion-1" type="radio">
+            <label for="tc-5">Bandwidth shaping</label>
+            <article class="ac-medium">
+                <code>
+                    $ <b>sudo tc qdisc add dev eth0 root handle 1: cbq avpkt 1000 bandwidth 10Mbit</b><br />
+                    <br />
+                    $ <b>sudo tc qdisc show dev eth0</b><br />
+                    qdisc cbq 1: root refcnt 2 rate 10000Kbit (bounded,isolated) prio no-transmit<br />
+                </code>
+            </article>
+        </div>
+    </div>
+</section>
