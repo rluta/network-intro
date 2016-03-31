@@ -1,0 +1,22 @@
+<h2>Page loading time</h2>
+<style>
+    #chart-bw text, #chart-lat text {
+        stroke: none;
+        fill: white;
+    }
+    div.hidden {
+        display: none;
+    }
+
+    div.chart {
+        font-size: 0.7em;
+    }
+</style>
+<div id="chart-bw" class="chart">
+    <svg width="1400" height="500"></svg>
+    <h3 style="text-transform: none">Fixed 60ms Latency, Bandwidth varying</h3>
+</div>
+<div id="chart-lat" class="hidden chart">
+    <svg width="1400" height="500"></svg>
+    <h3 style="text-transform: none">Fixed Bandwidth 5 mbps, Latency varying</h3>
+</div>

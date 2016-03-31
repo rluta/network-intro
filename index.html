@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>The network, this stranger within your application</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/pure-min.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/presentation.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+		<link rel="stylesheet" href="css/accordion.css">
+		<link rel="stylesheet" href="plugin/d3/nvd3.min.css">
+		<link rel="stylesheet" href="css/nav.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-html="slides/intro.html" ></section>
+				<section data-background="images/cat-awesome.jpg">
+					<h2 style="width: 100%; text-align: left; margin-left: -1em; color: darkorange; font-size: 5em; margin-top: 45rem; text-transform: capitalize">
+						MeowApp 1.0</h2>
+				</section>
+
+				<section data-background="images/cat-sad.jpg">
+					<h2 style="font-size: 5em; min-height: 50rem; text-transform: capitalize">Customer feedback</h2>
+				</section>
+
+				<section data-background="images/corrugated_stack.png">
+					<h2 style="font-size: 4em; min-height: 60rem; text-transform: capitalize">Network team perspective</h2>
+				</section>
+
+				<section data-background="images/dhl-superman.jpg">
+					<!--
+					<h2 style="color: darkorange; margin-top: 38rem">Their business is delivery</h2>
+					-->
+				</section>
+
+				<section data-html="slides/network/characteristics.html"></section>
+				<section>
+					<section data-html="slides/network/alternate.html"></section>
+					<section data-background="images/packet-loss.jpg">
+						<h2 style="color: darkorange; min-height: 50rem;">Error Rate</h2>
+					</section>
+				</section>
+
+				<section>
+					<h2>Ideal conditions</h2>
+					<br/>
+					<p><strong>Duplex</strong> must be <strong class="red">full</strong></p>
+					<p><strong>Error rate</strong> should be close to <strong class="red">0.0 %</strong></p>
+					<p><strong>MTU</strong> should be <strong class="red">as big as possible</strong></p>
+					<br/>
+					<code class="fragment roll-in"><br />
+						[...]the maximum length of an IP datagram sent over an Ethernet is <strong>1500 octets</strong>.
+						<br />
+						<br /><a href="http://tools.ietf.org/html/rfc894">IETF RFC 894</a>
+					</code>
+				</section>
+
+				<section data-html="slides/network/bwlat-evolution.html" data-js="js/bwlat.js" data-chart="vega" ></section>
+				<section data-background="images/latency-kills.jpg" ></section>
+
+				<section data-html="slides/network/lightspeed.html"></section>
+				<section data-html="slides/network/typical-networks.html"></section>
+
+				<section data-background="images/truck-encapsulation.jpg">
+					<h2 style="color: darkorange; font-size: 4em;margin-left: -20rem; min-height: 50rem; width: 100%;">Transport protocols</h2>
+				</section>
+
+				<section data-html="slides/tcp/udp.html" ></section>
+				<section data-html="slides/tcp/tcp.html" ></section>
+				<section data-html="slides/tcp/tcp-chat.html"></section>
+				<section data-html="slides/tcp/tcp-windows.html"></section>
+				<!--
+				<section data-html="slides/tcp/tcp-windows-chart.html" data-js="js/tcp-chart.js"></section>
+				-->
+				<section data-html="slides/tcp/tcp-ttlchart.html" data-js="js/ttl-chart.js" data-chart="vega"></section>
+				<!--
+				<section>
+					<section data-html="slides/tcp/plt.html" data-js="js/plt.js" data-chart="nvd3"></section>
+				</section>
+				-->
+
+				<section>
+					<section data-background="images/truck-tuning.jpg" >
+						<h2 style="color: darkorange; font-size: 4em;margin-left: -20rem; min-height: 50rem; width: 100%;">Tuning corner</h2>
+					</section>
+
+					<section id="tuning" data-html="slides/tools/tcp-tuning.html"></section>
+				</section>
+
+				<section data-background="images/packet-padding.jpg" ></section>
+				<section data-html="slides/pitfalls/excess-size.html"></section>
+				<section data-html="slides/pitfalls/serialization.html"></section>
+				<section data-background="images/cat-toobig.gif" ></section>
+				<section data-html="slides/pitfalls/compress-data.html"></section>
+
+				<section data-background="images/packet-toomany.jpg"></section>
+				<section data-html="slides/pitfalls/many-small-packets.html"></section>
+				<section data-background="images/belt-sorting-packages.gif">
+					<div style="min-height: 30em; width: 100%;">
+						<h2 style="margin-top: 10em; margin-left: -1em; color: yellow; text-align: left">Batch requests<br />Reuse connections</h2>
+					</div>
+				</section>
+
+				<section>
+					<section data-html="slides/pitfalls/info-localhost.html"></section>
+					<section data-html="slides/pitfalls/benchmark-localhost.html"></section>
+					<section data-html="slides/tools/gui-latency-tools.html"></section>
+					<section data-html="slides/tools/tc-tools.html"></section>
+				</section>
+
+				<section data-html="slides/fallacies.html"></section>
+
+				<section data-background="images/cats-in-boxes.jpg" >
+					<div class="container" style="min-height: 35em; position: relative;">
+						<h2 style="position: absolute; left:0; top: 2em; text-align: left; color: white; text-transform: capitalize">
+							Thank you<br />Questions ?
+						</h2>
+						<div style="position: absolute; color: yellow; left:0; bottom: 5.5em; text-align: left; font-size: 1.3em; line-height: 1.3em">
+							<strong>Raphaël Luta</strong><br />
+							Freelance technical consultant, Web & Data<br />
+							<a style="color: yellow" href="https://twitter.com/raphaelluta">@raphaelluta</a>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="plugin/jquery/jquery-2.2.2.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				width: 1280,
+				height: 1024,
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/loadhtml/loadhtmlslides.js', condition: function() { return !!document.querySelector( '[data-html]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/d3/d3.v3.min.js', async: false, condition: function() { return !!document.querySelector( '[data-chart]' ); } },
+					{ src: 'plugin/d3/vega.min.js', async: false, condition: function() { return !!document.querySelector( '[data-chart="vega"]' ); } },
+					{ src: 'plugin/d3/nvd3.min.js', async: false, condition: function() { return !!document.querySelector( '[data-chart="nvd3"]' ); } },
+					{ src: 'plugin/jquery/jquery.event.drag.js' },
+					{ src: 'plugin/jquery/jquery.event.drag.live.js' },
+					//{ src: 'plugin/term/socket.io.js' },
+					//{ src: 'plugin/term/term.js' },
+					//{ src: 'plugin/term/options.js' },
+					//{ src: 'plugin/term/tty.js' },
+					{ src: 'plugin/jquery/jquery.event.drag.live.js' },
+					{ src: 'plugin/jquery/jquery.event.drag.live.js' },
+					{ src: 'js/packetstory.js', callback: function () {
+						$(document).ready(PacketStory.init);
+					}}
+				]
+			});
+
+		</script>
+		<!--<div id="tty-open" class="term-button" data-url="http://192.168.99.100:8081/socket.io"></div>-->
+	</body>
+</html>

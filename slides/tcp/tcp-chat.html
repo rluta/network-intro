@@ -1,0 +1,75 @@
+<style>
+    .chat-box {
+        min-height: 50rem;
+        background-color: white;
+    }
+    .chat-box .header {
+        background-color: lightgray;
+        color: black;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 0.8em;
+        margin-bottom: 1em;
+    }
+
+    .chat-box:first-of-type .flag {
+        text-align: right;
+    }
+
+    .chat-box:last-of-type .flag {
+        text-align: left;
+    }
+</style>
+<h2>Typical TCP Chat</h2>
+<div class="row">
+    <div class="fit chat-box" style="flex-basis: 25%;">
+        <div class="header item">Server</div>
+        <div class="body">
+            <div class="item flag fragment" data-fragment-index="2">ACK</div>
+            <div class="item state fragment" data-fragment-index="2"><span>Connecting</span></div>
+            <div class="item flag fragment" data-fragment-index="2">SYN</div>
+            <div class="item state fragment" data-fragment-index="3" style="margin-bottom: 7em;"><span>Established</span></div>
+            <div class="item state fragment" data-fragment-index="6"><span>Closing</span></div>
+            <div class="item flag fragment" data-fragment-index="6"><span>FIN</span></div>
+            <div class="item flag fragment" data-fragment-index="9" style="margin-top: 2em;"><span>ACK</span></div>
+            <div class="item state fragment" data-fragment-index="9"><span>Closed (Time wait)</span></div>
+            <div class="item state fragment" data-fragment-index="10"><span>Closed</span></div>
+        </div>
+    </div>
+    <div class="fill chat-box" style="margin-left: 2em; margin-right: 2em;">
+        <div class="ios7">
+            <div class="header item">Messages</div>
+            <div class="message-wrapper item">
+                <div class="message to fragment" data-fragment-index="1">Hello</div>
+                <div class="message from fragment" data-fragment-index="2">Hi. How are you ?</div>
+                <div class="fragment to" data-fragment-index="3">
+                    <div class="message to">Fine</div>
+                    <br />
+                </div>
+                <div class="message to fragment" data-fragment-index="4">Can you show me your pussy ?</div>
+                <div class="message from fragment" data-fragment-index="5"><img src="images/chick-pussy.jpg" /></div>
+                <div class="fragment" data-fragment-index="6">
+                    <br />
+                    <div class="message from">Now get lost</div>
+                </div>
+                <div class="message to fragment" data-fragment-index="7">ok</div>
+                <div class="message to fragment" data-fragment-index="8">CU</div>
+                <div class="message from fragment" data-fragment-index="9">FU</div>
+                <div class="fragment" style="display: none" data-fragment-index="10"></div>
+            </div>
+        </div>
+    </div>
+    <div class="fit chat-box" style="flex-basis: 25%;">
+        <div class="header item">Client</div>
+        <div class="body">
+            <div class="item flag fragment" data-fragment-index="1">SYN</div>
+            <div class="item state fragment" data-fragment-index="1"><span>Connecting</span></div>
+            <div class="item flag fragment" data-fragment-index="3">ACK</div>
+            <div class="item state fragment" data-fragment-index="3" style="margin-bottom: 9em;"><span>Established</span></div>
+            <div class="item flag fragment" data-fragment-index="7"><span>ACK</span></div>
+            <div class="item state fragment" data-fragment-index="7"><span>Closing</span></div>
+            <div class="item flag fragment" data-fragment-index="8" style="margin-top: -1em;"><span>FIN</span></div>
+            <div class="item state fragment" data-fragment-index="9" style="margin-top: 1em;"><span>Closed</span></div>
+        </div>
+    </div>
+</div>

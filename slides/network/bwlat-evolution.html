@@ -1,0 +1,26 @@
+<h2>Bandwidth vs Latency Evolution</h2>
+<style>
+    .bwlat .button {
+        display: inline-block;
+        padding: 3px 10px;
+        margin: 0px 10px;
+    }
+
+    .bwlat .button.active {
+        background-color: darkorange;
+        border-radius: 3;
+    }
+</style>
+<div id="bwlat-toolbars" class="row bwlat">
+    <div class="row" style="margin-right: auto">
+        <a class="active item" data-source="data/bwlat-chart-access.json">Access</a> |
+        <a class="item" data-source="data/bwlat-chart-ethernet.json">Ethernet</a>
+    </div>
+    <div class="row"">
+        <div class="button disabled">Scale:</div>
+        <div id="bwlat-log" class="button active">log</div>
+        <div id="bwlat-linear" class="button">linear</div>
+    </div>
+</div>
+<div data-chart="vega"></div>
+<p class="fragment">Over the last 20 years, bandwidth has improved 1000 times faster than latency</p>

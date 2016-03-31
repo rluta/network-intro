@@ -1,0 +1,17 @@
+<h2>Reuse connections</h2>
+<br />
+<div>
+    <ul>
+        <li>Each new connection costs a full RTT</li>
+        <br>
+        <li>Effective bandwidth is constrained for the first 150 KB</li>
+    </ul>
+</div>
+<br />
+<h3 class="fragment roll-in">... especially with SSL/TLS !</h3>
+<div class="fragment roll-in" style="text-align: left">
+    <br />
+    <ul>
+        <li>TLS negociation adds <strong>at least</strong> 2 RTTs and costs a lot of CPU to set-up</li>
+    </ul>
+</div>
