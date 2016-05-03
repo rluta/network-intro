@@ -9,7 +9,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/pure-min.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -17,7 +17,6 @@
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
 		<link rel="stylesheet" href="css/accordion.css">
-		<link rel="stylesheet" href="plugin/d3/nvd3.min.css">
 		<link rel="stylesheet" href="css/nav.css">
 
 		<!-- Code syntax highlighting -->
@@ -157,6 +156,8 @@
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="plugin/jquery/jquery-2.2.2.min.js"></script>
+		<script src="plugin/jquery/jquery.event.drag.js"></script>
+		<script src="plugin/jquery/jquery.event.drag.live.js"></script>
 		<script src="plugin/d3/d3.v3.min.js"></script>
 		<script src="plugin/d3/vega.min.js"></script>
 		<script src="js/reveal.js"></script>
@@ -183,14 +184,6 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/loadhtml/loadhtmlslides.js', condition: function() { return !!document.querySelector( '[data-html]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/jquery/jquery.event.drag.js' },
-					{ src: 'plugin/jquery/jquery.event.drag.live.js' },
-					//{ src: 'plugin/term/socket.io.js' },
-					//{ src: 'plugin/term/term.js' },
-					//{ src: 'plugin/term/options.js' },
-					//{ src: 'plugin/term/tty.js' },
-					{ src: 'plugin/jquery/jquery.event.drag.live.js' },
-					{ src: 'plugin/jquery/jquery.event.drag.live.js' },
 					{ src: 'js/packetstory.js', callback: function () {
 						$(document).ready(PacketStory.init);
 					}}
