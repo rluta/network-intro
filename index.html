@@ -157,6 +157,8 @@
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="plugin/jquery/jquery-2.2.2.min.js"></script>
+		<script src="plugin/d3/d3.v3.min.js"></script>
+		<script src="plugin/d3/vega.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
@@ -181,9 +183,6 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/loadhtml/loadhtmlslides.js', condition: function() { return !!document.querySelector( '[data-html]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/d3/d3.v3.min.js', async: false, condition: function() { return !!document.querySelector( '[data-chart]' ); } },
-					{ src: 'plugin/d3/vega.min.js', async: false, condition: function() { return !!document.querySelector( '[data-chart="vega"]' ); } },
-					{ src: 'plugin/d3/nvd3.min.js', async: false, condition: function() { return !!document.querySelector( '[data-chart="nvd3"]' ); } },
 					{ src: 'plugin/jquery/jquery.event.drag.js' },
 					{ src: 'plugin/jquery/jquery.event.drag.live.js' },
 					//{ src: 'plugin/term/socket.io.js' },
